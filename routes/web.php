@@ -19,21 +19,41 @@ Route::get('/', function () {
 
 
 Route::get("/courses", function () {
-    $courses = require(database_path() ."/data.php");
+    $data = require(database_path() ."/data.php");
 
-    return view("courses.index", ["courses" => $courses]);
+    return view("courses.index", ["courses" => $data["courses"]]);
 })->name("courses.index");
 
 
 Route::get("/course/{slug}", function ($slug) {
-    $courses = require(database_path() ."/data.php");
+    $data = require(database_path() ."/data.php");
 
-    $index = array_search($slug, array_column($courses, "slug"));
+    $index = array_search($slug, array_column($data["courses"], "slug"));
 
     if ($index === false) {
         return "404 NOT FOUND";
     }
-    $course = $courses[$index];
+    $course = $data["courses"][$index];
     return view("courses.show", compact("course"));
 })->name("courses.show");
-;
+
+
+
+Route::get("/categories", function () {
+    $data = require(database_path() ."/data.php");
+
+    return view("categories.index", ["categories" => $data["categories"]]);
+})->name("categories.index");
+
+
+Route::get("/category/{slug}", function ($slug) {
+    $data = require(database_path() ."/data.php");
+
+    $index = array_search($slug, array_column($data["categories"], "slug"));
+
+    if ($index === false) {
+        return "404 NOT FOUND";
+    }
+    $category = $data["categories"][$index];
+    return view("categories.show", compact("category"));
+})->name("categories.show");
