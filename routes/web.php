@@ -19,11 +19,44 @@ Route::get('/', function () {
 
 
 Route::get("/courses", function () {
-    return view("courses.index");
+    $courses = [
+        [
+            "id"    => 1,
+            "name" => "HTML basics",
+            "slug"  => "html-basics"
+        ],
+          [
+            "id"    => 2,
+            "name" => "CSS basics",
+            "slug"  => "css-basics"
+        ]
+    ];
+
+
+    return view("courses.index", ["courses" => $courses]);
 })->name("courses");
 
 
 Route::get("/course/{slug}", function ($slug) {
-    return view("courses.show");
+    $courses = [
+           [
+               "id"    => 1,
+               "name" => "HTML basics",
+               "slug"  => "html-basics"
+           ],
+             [
+               "id"    => 2,
+               "name" => "CSS basics",
+               "slug"  => "css-basics"
+           ]
+       ];
+
+    $index = array_search($slug, array_column($courses, "slug"));
+
+    if ($index === false) {
+        return "404 NOT FOUND";
+    }
+    $course = $courses[$index];
+    return view("courses.show", compact("course"));
 })->name("course");
 ;

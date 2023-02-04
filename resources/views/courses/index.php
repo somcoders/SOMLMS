@@ -8,5 +8,12 @@
 </head>
 <body>
         <h1>Courses List</h1>
+
+        <?php foreach ($courses as $course) { ?>
+            <div style="background:teal;padding:10px;margin:5px;color:white">
+                <h4><?= $course["name"]  ?></h4>
+            </div>
+        <?php } ?>
+
 </body>
 </html>

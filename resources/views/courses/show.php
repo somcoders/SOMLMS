@@ -8,5 +8,6 @@
 </head>
 <body>
         <h1>Course</h1>
+        <h4 style="color:green;"><?= $course["name"]; ?></h4>
 </body>
 </html>
