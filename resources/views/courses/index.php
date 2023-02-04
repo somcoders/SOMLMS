@@ -11,9 +11,12 @@
 
         <?php foreach ($courses as $course) { ?>
             <div style="background:teal;padding:10px;margin:5px;color:white">
-                <h4><?= $course["name"]  ?></h4>
+                <h4><a href="<?= route("course", [$course["slug"]]) ?>"><?= $course["name"]  ?></a></h4>
             </div>
         <?php } ?>
 
+        <div>
+        <a href="<?= route("home") ?>">Back to Home</a>
+    </div>
 </body>
 </html>

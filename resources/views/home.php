@@ -9,5 +9,9 @@
 <body>
     
     <h1>Home page</h1>
+
+    <div>
+        <a href="<?= route("courses") ?>">Courses</a>
+    </div>
 </body>
 </html>
