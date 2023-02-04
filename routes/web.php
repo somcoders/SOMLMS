@@ -19,37 +19,14 @@ Route::get('/', function () {
 
 
 Route::get("/courses", function () {
-    $courses = [
-        [
-            "id"    => 1,
-            "name" => "HTML basics",
-            "slug"  => "html-basics"
-        ],
-          [
-            "id"    => 2,
-            "name" => "CSS basics",
-            "slug"  => "css-basics"
-        ]
-    ];
-
+    $courses = require(database_path() ."/data.php");
 
     return view("courses.index", ["courses" => $courses]);
-})->name("courses");
+})->name("courses.index");
 
 
 Route::get("/course/{slug}", function ($slug) {
-    $courses = [
-           [
-               "id"    => 1,
-               "name" => "HTML basics",
-               "slug"  => "html-basics"
-           ],
-             [
-               "id"    => 2,
-               "name" => "CSS basics",
-               "slug"  => "css-basics"
-           ]
-       ];
+    $courses = require(database_path() ."/data.php");
 
     $index = array_search($slug, array_column($courses, "slug"));
 
@@ -58,5 +35,5 @@ Route::get("/course/{slug}", function ($slug) {
     }
     $course = $courses[$index];
     return view("courses.show", compact("course"));
-})->name("course");
+})->name("courses.show");
 ;

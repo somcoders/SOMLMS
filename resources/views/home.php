@@ -11,7 +11,7 @@
     <h1>Home page</h1>
 
     <div>
-        <a href="<?= route("courses") ?>">Courses</a>
+        <a href="<?= route("courses.index") ?>">Courses</a>
     </div>
 </body>
 </html>

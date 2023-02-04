@@ -10,6 +10,6 @@
         <h1>Course</h1>
         <h4 style="color:green;"><?= $course["name"]; ?></h4>
 
-         <a href="<?= route("courses") ?>">Back to Courses</a>
+         <a href="<?= route("courses.index") ?>">Back to Courses</a>
 </body>
 </html>
