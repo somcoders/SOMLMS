@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>categories</title>
+    <title>Home</title>
 </head>
-<body>
-        <h1>category</h1>
-        <h4 style="color:green;"><?= $category["name"]; ?></h4>
 
-         <a href="<?= route("categories.index") ?>">Back to categorys</a>
+<body>
+
+    <h1>Home page</h1>
+
+    <div>
+        <a href="{{ route('courses.index') }}">Courses</a>
+        <br>
+        <a href="{{ route('categories.index') }}">Categories</a>
+    </div>
 </body>
+
 </html>
