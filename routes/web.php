@@ -18,6 +18,12 @@ Route::get('/', function () {
 })->name("home");
 
 
+Route::get('/profile', function () {
+    return view('profile');
+})->name("profile");
+
+
+
 Route::get("/courses", function () {
     $data = require(database_path() ."/data.php");
 
