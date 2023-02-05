@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 
-@section('title', 'Categories')
+@section('title', 'Profile')
 
 @section('contents')
     <main class="profile-page">

@@ -14,7 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    $data = require(database_path() ."/data.php");
+    $courses = $data["courses"];
+    $categories = $data["categories"];
+
+    return view('home', compact("courses", "categories"));
 })->name("home");
 
 
