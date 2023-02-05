@@ -38,7 +38,7 @@
                                     class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-400">
                                     <i class="fas fa-book"></i>
                                 </div>
-                                <h6 class="text-xl font-semibold">3 Courses</h6>
+                                <h6 class="text-xl font-semibold">{{ count($courses) }} Courses</h6>
                             </div>
                         </div>
                     </div>
@@ -97,46 +97,20 @@
                     </div>
                 </div>
                 <div class="flex flex-wrap mt-12 justify-center">
-                    <div class="w-full lg:w-3/12 px-4 text-center">
-                        <a href="http://larasom.test/categories/html">
-                            <div class="bg-gray-800 p-10 my-2 rounded-lg hover:bg-blue-900">
-                                <h6 class="text-xl font-semibold text-gray-200">
-                                    HTML
-                                    <span class="text-gray-500">(10)</span>
-                                </h6>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="w-full lg:w-3/12 px-4 text-center">
-                        <a href="http://larasom.test/categories/css">
-                            <div class="bg-gray-800 p-10 my-2 rounded-lg hover:bg-blue-900">
-                                <h6 class="text-xl font-semibold text-gray-200">
-                                    CSS
-                                    <span class="text-gray-500">(10)</span>
-                                </h6>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="w-full lg:w-3/12 px-4 text-center">
-                        <a href="http://larasom.test/categories/javascript">
-                            <div class="bg-gray-800 p-10 my-2 rounded-lg hover:bg-blue-900">
-                                <h6 class="text-xl font-semibold text-gray-200">
-                                    JS
-                                    <span class="text-gray-500">(10)</span>
-                                </h6>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="w-full lg:w-3/12 px-4 text-center">
-                        <a href="http://larasom.test/categories/php">
-                            <div class="bg-gray-800 p-10 my-2 rounded-lg hover:bg-blue-900">
-                                <h6 class="text-xl font-semibold text-gray-200">
-                                    PHP
-                                    <span class="text-gray-500">(10)</span>
-                                </h6>
-                            </div>
-                        </a>
-                    </div>
+                    @forelse ($categories as $category)
+                        <div class="w-full lg:w-3/12 px-4 text-center">
+                            <a href="{{ route('categories.show', $category['slug']) }}">
+                                <div class="bg-gray-800 p-10 my-2 rounded-lg hover:bg-blue-900">
+                                    <h6 class="text-xl font-semibold text-gray-200">
+                                        {{ $category['name'] }}
+                                        <span class="text-gray-500">(10)</span>
+                                    </h6>
+                                </div>
+                            </a>
+                        </div>
+                    @empty
+                        <h4>No Categories</h4>
+                    @endforelse
                 </div>
 
 

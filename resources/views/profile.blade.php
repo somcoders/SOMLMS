@@ -36,61 +36,10 @@
                                     <!-- /Courses -->
                                     <div
                                         class="grid gap-8 sm:grid-cols-2 sm:gap-12 lg:grid-cols-3 xl:grid-cols-4 xl:gap-16">
-                                        <article class="h-40">
-                                            <a class="block h-full flex flex-col justify-around rounded-lg bg-gradient-to-r from-purple-500 via-indigo-400 to-indigo-400 p-2 transition hover:scale-105"
-                                                href="http://larasom.test/course/html-basics">
-                                                <h2 class="mx-4 mt-4 font-semibold text-xl font-semibold text-white">
-                                                    HTML Beyond the basics
-                                                </h2>
-                                                <div class="flex flex-wrap justify-around text-gray-200">
-                                                    <div>
-                                                        <span class="fa fa-signal"></span>
-                                                        <span class="mr-1">Advanced</span>
-                                                    </div>
-                                                    <div>
-                                                        <span class="fa fa-clock"></span>
-                                                        <span class="mr-1">2 hrs</span>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </article>
-                                        <article class="h-40">
-                                            <a class="block h-full flex flex-col justify-around rounded-lg bg-gradient-to-r from-fuchsia-500 via-pink-400 to-pink-400 p-2 transition hover:scale-105"
-                                                href="http://larasom.test/course/css-basics">
-                                                <h2 class="mx-4 mt-4 font-semibold text-xl font-semibold text-white">
-                                                    CSS Basics
-                                                </h2>
-                                                <div class="flex flex-wrap justify-around text-gray-200">
-                                                    <div>
-                                                        <span class="fa fa-signal"></span>
-                                                        <span class="mr-1">Beginer</span>
-                                                    </div>
-                                                    <div>
-                                                        <span class="fa fa-clock"></span>
-                                                        <span class="mr-1">3 hrs</span>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </article>
-                                        <article class="h-40">
-                                            <a class="block h-full flex flex-col justify-around rounded-lg bg-gradient-to-r from-blue-500 via-cyan-400 to-cyan-400 p-2 transition hover:scale-105"
-                                                href="http://larasom.test/course/php-basics">
-                                                <h2 class="mx-4 mt-4 font-semibold text-xl font-semibold text-white">
-                                                    PHP Basics
-                                                </h2>
-                                                <div class="flex flex-wrap justify-around text-gray-200">
-                                                    <div>
-                                                        <span class="fa fa-signal"></span>
-                                                        <span class="mr-1">Intermidiate</span>
-                                                    </div>
-                                                    <div>
-                                                        <span class="fa fa-clock"></span>
-                                                        <span class="mr-1">4 hrs</span>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </article>
-
+                                        @php
+                                            $courses = [];
+                                        @endphp
+                                        <x-course-grid :$courses />
                                     </div>
                                 </div>
                             </div>

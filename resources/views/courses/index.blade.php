@@ -51,17 +51,5 @@
                 </div>
             </div>
         </section>
-
-        <h1>Courses List</h1>
-
-        @forelse ($courses as $course)
-            <div style="background:teal;padding:10px;margin:5px;color:white">
-                <h4><a href="{{ route('courses.show', [$course['slug']]) }}">{{ $course['name'] }}</a></h4>
-            </div>
-
-        @empty
-            <p>No courses found</p>
-        @endforelse
-
     </main>
 @endsection

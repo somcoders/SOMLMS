@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 
-@section('title', 'Categories')
+@section('title', 'Category')
 
 @section('contents')
 
@@ -17,7 +17,7 @@
                     <div class="px-6">
                         <div class="text-center mt-12">
                             <h3 class="text-4xl font-semibold leading-normal mb-2 text-gray-200">
-                                HTML
+                                {{ $category['name'] }}
                             </h3>
 
                         </div>
@@ -34,43 +34,10 @@
                                     <!-- /Courses -->
                                     <div
                                         class="grid gap-8 sm:grid-cols-2 sm:gap-12 lg:grid-cols-3 xl:grid-cols-4 xl:gap-16">
-                                        <article class="h-40">
-                                            <a class="block h-full flex flex-col justify-around rounded-lg bg-gradient-to-r from-red-500 via-blue-400 to-blue-400 p-2 transition hover:scale-105"
-                                                href="course.html">
-                                                <h2 class="mx-4 mt-4 font-semibold text-xl font-semibold text-white">
-                                                    HTML basic
-                                                </h2>
-                                                <div class="flex flex-wrap justify-around text-gray-200">
-                                                    <div>
-                                                        <span class="fa fa-signal"></span>
-                                                        <span class="mr-1">beginer</span>
-                                                    </div>
-                                                    <div>
-                                                        <span class="fa fa-clock"></span>
-                                                        <span class="mr-1">1 hrs</span>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </article>
-                                        <article class="h-40">
-                                            <a class="block h-full flex flex-col justify-around rounded-lg bg-gradient-to-r from-purple-500 via-blue-400 to-blue-400 p-2 transition hover:scale-105"
-                                                href="course.html">
-                                                <h2 class="mx-4 mt-4 font-semibold text-xl font-semibold text-white">
-                                                    PHP beyond the basics
-                                                </h2>
-                                                <div class="flex flex-wrap justify-around text-gray-200">
-                                                    <div>
-                                                        <span class="fa fa-signal"></span>
-                                                        <span class="mr-1">advanced</span>
-                                                    </div>
-                                                    <div>
-                                                        <span class="fa fa-clock"></span>
-                                                        <span class="mr-1">3 hrs</span>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </article>
-
+                                        @php
+                                            $courses = [];
+                                        @endphp
+                                        <x-course-grid :$courses />
                                     </div>
                                 </div>
                             </div>

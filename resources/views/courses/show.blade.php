@@ -17,17 +17,17 @@
                     <div class="px-6">
                         <div class="text-center mt-12">
                             <h3 class="text-4xl font-semibold leading-normal mb-2 text-gray-200">
-                                HTML basic
+                                {{ $course['name'] }}
                             </h3>
                             <div
                                 class="flex justify-center text-sm leading-normal mt-0 mb-2 text-gray-500 font-bold uppercase">
                                 <div class="mr-2">
                                     <i class="fas fa-signal text-lg text-gray-500"></i>
-                                    beginer
+                                    {{ $course['level'] }}
                                 </div>
                                 <div class="mr-2">
                                     <i class="fas fa-clock text-lg text-gray-500"></i>
-                                    1 hours
+                                    {{ $course['duration'] }} Hrs
                                 </div>
 
                             </div>
@@ -36,7 +36,7 @@
                             <div class="flex flex-wrap justify-center">
                                 <div class="w-full lg:w-9/12 px-4">
                                     <p class="mb-4 text-lg leading-relaxed text-gray-200">
-                                        HTML basics course
+                                        {{ $course['description'] }}
                                     </p>
                                 </div>
                             </div>
