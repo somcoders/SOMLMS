@@ -5,10 +5,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <link rel="stylesheet" href="{{ asset('assets/css/fontawesome.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
-    <script src="{{ asset('assets/js/script.js') }}"></script>
-    <script src="{{ asset('assets/js/all.min.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('css/fontawesome.css') }}" />
+    {{-- <link rel="stylesheet" href="{{ asset('build/assets/app-140d01ff.css') }}" />
+    <script src="{{ asset('build/assets/app-60701cc7.js') }}"></script> --}}
+    <script src="{{ asset('js/all.min.js') }}"></script>
+
+    @vite('resources/css/app.css')
+    @vite('resources/js/app.js')
+
     <title>@yield('title')</title>
 </head>
 
