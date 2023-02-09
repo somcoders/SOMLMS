@@ -32,7 +32,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        dd("not found");
     }
 
     /**
@@ -54,8 +54,6 @@ class CategoryController extends Controller
      */
     public function show($slug)
     {
-        $data = require(database_path() ."/data.php");
-
         $index = array_search($slug, array_column($this->data["categories"], "slug"));
 
         if ($index === false) {
