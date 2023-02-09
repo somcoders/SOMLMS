@@ -6,23 +6,28 @@ use Illuminate\Http\Request;
 
 class CourseController extends Controller
 {
-    public function index()
+    private $data = [];
+
+    public function __construct()
     {
         $data = require(database_path() ."/data.php");
-        return view("courses.index", ["courses" => $data["courses"]]);
+        $this->data = $data;
+    }
+
+    public function index()
+    {
+        return view("courses.index", ["courses" => $this->data["courses"]]);
     }
 
 
     public function show($slug)
     {
-        $data = require(database_path() ."/data.php");
-
-        $index = array_search($slug, array_column($data["courses"], "slug"));
+        $index = array_search($slug, array_column($this->data["courses"], "slug"));
 
         if ($index === false) {
             return "404 NOT FOUND";
         }
-        $course = $data["courses"][$index];
+        $course = $this->data["courses"][$index];
         return view("courses.show", compact("course"));
     }
 }

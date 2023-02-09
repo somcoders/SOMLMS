@@ -6,6 +6,14 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
+    private $data = [];
+
+    public function __construct()
+    {
+        $data = require(database_path() ."/data.php");
+        $this->data = $data;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +22,7 @@ class CategoryController extends Controller
     public function index()
     {
         $data = require(database_path() ."/data.php");
-        return view("categories.index", ["categories" => $data["categories"]]);
+        return view("categories.index", ["categories" => $this->data["categories"]]);
     }
 
     /**
@@ -48,12 +56,12 @@ class CategoryController extends Controller
     {
         $data = require(database_path() ."/data.php");
 
-        $index = array_search($slug, array_column($data["categories"], "slug"));
+        $index = array_search($slug, array_column($this->data["categories"], "slug"));
 
         if ($index === false) {
             return "404 NOT FOUND";
         }
-        $category = $data["categories"][$index];
+        $category = $this->data["categories"][$index];
         return view("categories.show", compact("category"));
     }
 
