@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,13 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $data = require(database_path() ."/data.php");
-    $courses = $data["courses"];
-    $categories = $data["categories"];
-
-    return view('home', compact("courses", "categories"));
-})->name("home");
+Route::get('/', HomeController::class)->name("home");
 
 
 Route::get('/profile', function () {
@@ -28,24 +24,8 @@ Route::get('/profile', function () {
 
 
 
-Route::get("/courses", function () {
-    $data = require(database_path() ."/data.php");
-
-    return view("courses.index", ["courses" => $data["courses"]]);
-})->name("courses.index");
-
-
-Route::get("/course/{slug}", function ($slug) {
-    $data = require(database_path() ."/data.php");
-
-    $index = array_search($slug, array_column($data["courses"], "slug"));
-
-    if ($index === false) {
-        return "404 NOT FOUND";
-    }
-    $course = $data["courses"][$index];
-    return view("courses.show", compact("course"));
-})->name("courses.show");
+Route::get("/courses", [CourseController::class,"index"])->name("courses.index");
+Route::get("/course/{slug}", [CourseController::class,"show"])->name("courses.show");
 
 
 
