@@ -5,8 +5,20 @@ module.exports = {
         "./resources/**/*.js",
         "./resources/**/*.vue",
     ],
+
     theme: {
         extend: {},
     },
     plugins: [],
+    safelist: [
+        {
+            pattern: /from-(purple|fuchsia|blue)-(400|500)/,
+        },
+        {
+            pattern: /via-(blue|cyan|indigo|pink)-(400|500)/,
+        },
+        {
+            pattern: /to-(blue|cyan|indigo|pink)-(400|500)/,
+        },
+    ],
 };
