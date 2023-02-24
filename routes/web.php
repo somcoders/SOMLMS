@@ -16,6 +16,7 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
+//Using Tinker
 Route::get('/', HomeController::class)->name("home");
 
 
