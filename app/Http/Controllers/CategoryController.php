@@ -3,17 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
-    private $data = [];
-
-    public function __construct()
-    {
-        $data = require(database_path() ."/data.php");
-        $this->data = $data;
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -21,8 +14,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $data = require(database_path() ."/data.php");
-        return view("categories.index", ["categories" => $this->data["categories"]]);
+        $categories = DB::table("categories")->get();
+
+        return view("categories.index", ["categories" => $categories]);
     }
 
     /**
@@ -54,13 +48,20 @@ class CategoryController extends Controller
      */
     public function show($slug)
     {
-        $index = array_search($slug, array_column($this->data["categories"], "slug"));
+        $category = DB::table("categories")
+                ->whereSlug($slug)
+                ->first();
 
-        if ($index === false) {
-            return "404 NOT FOUND";
+
+        if (!$category) {
+            abort(404);
         }
-        $category = $this->data["categories"][$index];
-        return view("categories.show", compact("category"));
+
+        $courses = DB::table("courses")
+                        ->where('category_id', $category->id)
+                        ->get();
+
+        return view("categories.show", compact("category", "courses"));
     }
 
     /**
