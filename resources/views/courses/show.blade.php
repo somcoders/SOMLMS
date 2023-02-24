@@ -17,17 +17,17 @@
                     <div class="px-6">
                         <div class="text-center mt-12">
                             <h3 class="text-4xl font-semibold leading-normal mb-2 text-gray-200">
-                                {{ $course['name'] }}
+                                {{ $course->name }}
                             </h3>
                             <div
                                 class="flex justify-center text-sm leading-normal mt-0 mb-2 text-gray-500 font-bold uppercase">
                                 <div class="mr-2">
                                     <i class="fas fa-signal text-lg text-gray-500"></i>
-                                    {{ $course['level'] }}
+                                    {{ $course->level }}
                                 </div>
                                 <div class="mr-2">
                                     <i class="fas fa-clock text-lg text-gray-500"></i>
-                                    {{ $course['duration'] }} Hrs
+                                    {{ $course->duration }} Hrs
                                 </div>
 
                             </div>
@@ -36,7 +36,7 @@
                             <div class="flex flex-wrap justify-center">
                                 <div class="w-full lg:w-9/12 px-4">
                                     <p class="mb-4 text-lg leading-relaxed text-gray-200">
-                                        {{ $course['description'] }}
+                                        {{ $course->description }}
                                     </p>
                                 </div>
                             </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class HomeController extends Controller
 {
@@ -14,9 +15,8 @@ class HomeController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $data = require(database_path() ."/data.php");
-        $courses = $data["courses"];
-        $categories = $data["categories"];
+        $courses    = DB::table("courses")->where('is_visible', true)->get();
+        $categories = DB::table("categories")->get();
 
         return view('home', compact("courses", "categories"));
     }

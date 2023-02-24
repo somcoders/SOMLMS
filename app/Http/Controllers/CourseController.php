@@ -3,31 +3,29 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class CourseController extends Controller
 {
-    private $data = [];
-
-    public function __construct()
-    {
-        $data = require(database_path() ."/data.php");
-        $this->data = $data;
-    }
-
     public function index()
     {
-        return view("courses.index", ["courses" => $this->data["courses"]]);
+        $courses    = DB::table("courses")->where('is_visible', true)->get();
+
+        return view("courses.index", ["courses" => $courses]);
     }
 
 
     public function show($slug)
     {
-        $index = array_search($slug, array_column($this->data["courses"], "slug"));
+        $course    = DB::table("courses")
+                    ->where('slug', $slug)
+                    ->where('is_visible', true)
+                    ->first();
 
-        if ($index === false) {
-            return "404 NOT FOUND";
+        if (!$course) {
+            abort(404);
         }
-        $course = $this->data["courses"][$index];
+
         return view("courses.show", compact("course"));
     }
 }

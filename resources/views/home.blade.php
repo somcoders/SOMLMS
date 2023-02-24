@@ -99,10 +99,10 @@
                 <div class="flex flex-wrap mt-12 justify-center">
                     @forelse ($categories as $category)
                         <div class="w-full lg:w-3/12 px-4 text-center">
-                            <a href="{{ route('categories.show', $category['slug']) }}">
+                            <a href="{{ route('categories.show', $category->slug) }}">
                                 <div class="bg-gray-800 p-10 my-2 rounded-lg hover:bg-blue-900">
                                     <h6 class="text-xl font-semibold text-gray-200">
-                                        {{ $category['name'] }}
+                                        {{ $category->name }}
                                         <span class="text-gray-500">(10)</span>
                                     </h6>
                                 </div>
