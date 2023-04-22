@@ -15,8 +15,20 @@ class Lesson extends Model
         return $this->hasMany(Lesson::class, 'parent_id');
     }
 
-      public function chapter()
-      {
-          return $this->belongsTo(Lesson::class, 'parent_id');
-      }
+    public function chapter()
+    {
+        return $this->belongsTo(Lesson::class, 'parent_id');
+    }
+
+
+    public function scopeSection($query)
+    {
+        return $query->whereNull('parent_id');
+    }
+
+
+    public function scopeLesson($query)
+    {
+        return $query->whereNotNull('parent_id');
+    }
 }

@@ -58,10 +58,8 @@ class CategoryController extends Controller
             abort(404);
         }
 
-        $courses = Course::where('category_id', $category->id)
-                        ->get();
 
-        return view("categories.show", compact("category", "courses"));
+        return view("categories.show", compact("category"));
     }
 
     /**

@@ -29,6 +29,7 @@ class CourseController extends Controller
             abort(404);
         }
 
+
         return view("courses.show", compact("course"));
     }
 }

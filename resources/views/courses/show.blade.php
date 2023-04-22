@@ -57,100 +57,30 @@
                 <div class="flex flex-col flex-wrap lg:py-6 -mb-10  lg:w-1/2 w-full lg:pl-12 lg:text-left text-center">
                     <div class="flex flex-col lg:items-start items-center">
                         <div class="w-full">
-                            <p class="mt-5 px-"><b class="text-pink-400">CHAPTER 01</b></p>
-                            <ul class="list-none">
-                                <li class="py-1">
-                                    <div class="flex items-center bg-slate-700 p-2 rounded-full hover:bg-slate-100 ml-4">
-                                        <div><span
-                                                class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3"><i
-                                                    class="fas fa-video"></i></span></div>
-                                        <div>
-                                            <a href="#" class="text-slate-500">Lesson 1</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="py-1">
-                                    <div class="flex items-center bg-slate-700 p-2 rounded-full hover:bg-slate-100 ml-4">
-                                        <div><span
-                                                class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3"><i
-                                                    class="fas fa-video"></i></span></div>
-                                        <div>
-                                            <a href="#" class="text-slate-500">Lesson 2</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="py-1">
-                                    <div class="flex items-center bg-slate-700 p-2 rounded-full hover:bg-slate-100 ml-4">
-                                        <div><span
-                                                class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3"><i
-                                                    class="fas fa-video"></i></span></div>
-                                        <div>
-                                            <a href="#" class="text-slate-500">Lesson 3</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="py-1">
-                                    <div class="flex items-center bg-slate-700 p-2 rounded-full hover:bg-slate-100 ml-4">
-                                        <div><span
-                                                class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3"><i
-                                                    class="fas fa-video"></i></span></div>
-                                        <div>
-                                            <a href="#" class="text-slate-500">Lesson 4</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="py-1">
-                                    <div class="flex items-center bg-slate-700 p-2 rounded-full hover:bg-slate-100 ml-4">
-                                        <div><span
-                                                class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3"><i
-                                                    class="fas fa-video"></i></span></div>
-                                        <div>
-                                            <a href="#" class="text-slate-500">Lesson 5</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="py-1">
-                                    <div class="flex items-center bg-slate-700 p-2 rounded-full hover:bg-slate-100 ml-4">
-                                        <div><span
-                                                class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3"><i
-                                                    class="fas fa-video"></i></span></div>
-                                        <div>
-                                            <a href="#" class="text-slate-500">Lesson 6</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="py-1">
-                                    <div class="flex items-center bg-slate-700 p-2 rounded-full hover:bg-slate-100 ml-4">
-                                        <div><span
-                                                class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3"><i
-                                                    class="fas fa-video"></i></span></div>
-                                        <div>
-                                            <a href="#" class="text-slate-500">Lesson 7</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="py-1">
-                                    <div class="flex items-center bg-slate-700 p-2 rounded-full hover:bg-slate-100 ml-4">
-                                        <div><span
-                                                class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3"><i
-                                                    class="fas fa-video"></i></span></div>
-                                        <div>
-                                            <a href="#" class="text-slate-500">Lesson 8</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="py-1">
-                                    <div class="flex items-center bg-slate-700 p-2 rounded-full hover:bg-slate-100 ml-4">
-                                        <div><span
-                                                class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3"><i
-                                                    class="fas fa-video"></i></span></div>
-                                        <div>
-                                            <a href="#" class="text-slate-500">Lesson 9</a>
-                                        </div>
-                                    </div>
-                                </li>
+                            @forelse ($course->chapters as $chapter)
+                                <p class="mt-5 px-"><b class="text-pink-400">{{ $chapter->name }}</b></p>
+                                <ul class="list-none">
+                                    @forelse ($chapter->lessons as $lesson)
+                                        <li class="py-1">
+                                            <div
+                                                class="flex items-center bg-slate-700 p-2 rounded-full hover:bg-slate-100 ml-4">
+                                                <div><span
+                                                        class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3"><i
+                                                            class="fas fa-video"></i></span></div>
+                                                <div>
+                                                    <a href="#" class="text-slate-500">{{ $lesson->name }}</a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    @empty
+                                        <h2>No Lessons Found</h2>
+                                    @endforelse
 
-                            </ul>
+                                </ul>
+                            @empty
+                                <h2>No Chapters Found</h2>
+                            @endforelse
+
                         </div>
                     </div>
                 </div>

@@ -25,7 +25,7 @@
                             <div class="flex flex-wrap justify-center">
                                 <div class="w-full lg:w-9/12 px-4">
                                     <p class="mb-4 text-lg leading-relaxed text-gray-200">
-                                        Courses (2)
+                                        Courses ({{ count($category->courses) }})
                                     </p>
                                 </div>
                             </div>
@@ -34,8 +34,7 @@
                                     <!-- /Courses -->
                                     <div
                                         class="grid gap-8 sm:grid-cols-2 sm:gap-12 lg:grid-cols-3 xl:grid-cols-4 xl:gap-16">
-
-                                        <x-course-grid :$courses />
+                                        <x-course-grid :courses="$category->courses" />
                                     </div>
                                 </div>
                             </div>
