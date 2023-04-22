@@ -49,7 +49,7 @@
         <section class="text-gray-400 bg-gray-900 body-font">
             <div class="container px-5 pb-10 mx-auto flex flex-wrap">
                 <div class="lg:w-1/2 w-full mt-10 lg:mb-0 rounded-lg overflow-hidden">
-                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/pLMTZtEg8iE"
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/{{ $video->embed ?? '' }}"
                         title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen></iframe>
@@ -68,7 +68,12 @@
                                                         class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3"><i
                                                             class="fas fa-video"></i></span></div>
                                                 <div>
-                                                    <a href="#" class="text-slate-500">{{ $lesson->name }}</a>
+                                                    <a href="{{ route('courses.show', [$course->slug, $lesson->slug]) }}"
+                                                        class="text-slate-500">
+                                                        {{ $lesson->name }}
+
+                                                        <span class="{{ $lesson->is_free ? '' : 'fa fa-lock' }}"></span>
+                                                    </a>
                                                 </div>
                                             </div>
                                         </li>

@@ -26,6 +26,6 @@ Route::get('/profile', function () {
 
 
 Route::get("/courses", [CourseController::class,"index"])->name("courses.index");
-Route::get("/course/{slug}", [CourseController::class,"show"])->name("courses.show");
+Route::get("/course/{slug}/{lesson?}", [CourseController::class,"show"])->name("courses.show");
 
 Route::resource("/categories", CategoryController::class)->only(["index","show"]);
