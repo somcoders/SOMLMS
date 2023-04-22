@@ -17,7 +17,7 @@ class HomeController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $categories = Category::get();
+        $categories = Category::withCount("courses")->get();
         $courses    = Course::visible()->get();
 
         return view('home', compact("courses", "categories"));

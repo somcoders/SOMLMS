@@ -31,7 +31,8 @@
                                                     <div class="bg-gray-800 p-10 my-2 rounded-lg hover:bg-blue-900">
                                                         <h6 class="text-xl font-semibold text-gray-200">
                                                             {{ $category->name }}
-                                                            <span class="text-gray-500">(10)</span>
+                                                            <span
+                                                                class="text-gray-500">({{ $category->courses_count }})</span>
                                                         </h6>
                                                     </div>
                                                 </a>

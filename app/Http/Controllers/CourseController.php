@@ -18,7 +18,8 @@ class CourseController extends Controller
 
     public function show($slug)
     {
-        $course    = Course::where('slug', $slug)
+        $course    = Course::with("chapters.lessons")
+                ->where('slug', $slug)
                     ->Visible()
                     ->first();
 

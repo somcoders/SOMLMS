@@ -16,7 +16,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::withCount("courses")->get();
 
         return view("categories.index", ["categories" => $categories]);
     }
@@ -50,8 +50,9 @@ class CategoryController extends Controller
      */
     public function show($slug)
     {
-        $category = Category::whereSlug($slug)
-                ->first();
+        $category = Category::with("courses")
+            ->whereSlug($slug)
+            ->first();
 
 
         if (!$category) {
