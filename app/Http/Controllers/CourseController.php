@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use DB;
+use App\Models\Course;
+use Illuminate\Http\Request;
 
 class CourseController extends Controller
 {
     public function index()
     {
-        $courses    = DB::table("courses")->where('is_visible', true)->get();
+        $courses    = Course::visible()->get();
 
         return view("courses.index", ["courses" => $courses]);
     }
@@ -17,10 +18,12 @@ class CourseController extends Controller
 
     public function show($slug)
     {
-        $course    = DB::table("courses")
-                    ->where('slug', $slug)
-                    ->where('is_visible', true)
+        $course    = Course::where('slug', $slug)
+                    ->Visible()
                     ->first();
+
+
+
 
         if (!$course) {
             abort(404);

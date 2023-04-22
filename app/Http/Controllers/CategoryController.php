@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Course;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -14,7 +16,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = DB::table("categories")->get();
+        $categories = Category::all();
 
         return view("categories.index", ["categories" => $categories]);
     }
@@ -48,8 +50,7 @@ class CategoryController extends Controller
      */
     public function show($slug)
     {
-        $category = DB::table("categories")
-                ->whereSlug($slug)
+        $category = Category::whereSlug($slug)
                 ->first();
 
 
@@ -57,8 +58,7 @@ class CategoryController extends Controller
             abort(404);
         }
 
-        $courses = DB::table("courses")
-                        ->where('category_id', $category->id)
+        $courses = Course::where('category_id', $category->id)
                         ->get();
 
         return view("categories.show", compact("category", "courses"));
