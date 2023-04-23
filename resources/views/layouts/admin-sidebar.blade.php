@@ -23,32 +23,29 @@
               <li class="relative">
                   <button
                       class="focus:bg-slate-600 hover:bg-slate-600 flex w-full space-x-2 rounded-md px-10 py-4 text-gray-300 focus:outline-none">
-                      <span><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                              stroke="currentColor" stroke-width="2">
-                              <path stroke-linecap="round" stroke-linejoin="round"
-                                  d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-                          </svg></span><span class="">Dashboard</span>
+                      <span class="fa fa-signal w-6 h-6"></span>
+                      <a href="{{ route('dashboard') }}"> Dashboard</a>
                   </button>
               </li>
-
               <li class="relative">
                   <button
                       class="focus:bg-slate-600 hover:bg-slate-600 flex w-full space-x-2 rounded-md px-10 py-4 text-gray-300 focus:outline-none">
-                      <span><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                              stroke="currentColor" stroke-width="2">
-                              <path stroke-linecap="round" stroke-linejoin="round"
-                                  d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-                          </svg></span><span class="">Courses</span>
+                      <span class="fa fa-list w-6 h-6"></span>
+                      <a href="{{ route('dashboard') }}"> Courses</a>
+                  </button>
+              </li>
+              <li class="relative">
+                  <button
+                      class="focus:bg-slate-600 hover:bg-slate-600 flex w-full space-x-2 rounded-md px-10 py-4 text-gray-300 focus:outline-none">
+                      <span class="fa fa-video w-6 h-6"></span>
+                      <a href="{{ route('dashboard') }}"> Students</a>
                   </button>
               </li>
               <li class="relative">
                   <button
                       class="focus:bg-slate-600 hover:bg-slate-600 flex w-full space-x-2 rounded-md px-10 py-4 font-semibold focus:outline-none">
-                      <span><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                              stroke="currentColor" stroke-width="2">
-                              <path stroke-linecap="round" stroke-linejoin="round"
-                                  d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-                          </svg> </span><span class="">Students</span>
+                      <span class="fa fa-user w-6 h-6"></span>
+                      <span class="">Students</span>
                   </button>
                   <svg class="text-slate-200 absolute -right-1 -top-1/2 z-10 hidden h-32 w-8 md:block"
                       xmlns="http://www.w3.org/2000/svg" viewBox="399.349 57.696 100.163 402.081" width="1em"
@@ -60,11 +57,8 @@
               <li class="relative">
                   <button
                       class="focus:bg-slate-600 hover:bg-slate-600 flex w-full space-x-2 rounded-md px-10 py-4 text-gray-300 focus:outline-none">
-                      <span><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                              stroke="currentColor" stroke-width="2">
-                              <path stroke-linecap="round" stroke-linejoin="round"
-                                  d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                          </svg></span><span class="">Instructors</span>
+                      <span class="fa fa-pen w-6 h-6"></span>
+                      <a href="{{ route('dashboard') }}"> Instructors</a>
                   </button>
               </li>
           </ul>

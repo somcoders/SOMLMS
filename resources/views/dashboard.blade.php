@@ -1,17 +1,9 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
-        </div>
+    <!-- Component Start -->
+    <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-6 w-full max-w-6xl">
+        <x-dashcard text="99" desc="Courses" textColor="text-red-800" bg="bg-red-200" icon="fa fa-list" />
+        <x-dashcard text="12" desc="Students" textColor="text-green-800" bg="bg-green-200" icon="fa fa-user" />
+        <x-dashcard text="78" desc="Lessons" textColor="text-pink-800" bg="bg-pink-200" icon="fa fa-video" />
     </div>
+    <!-- Component End  -->
 </x-app-layout>
