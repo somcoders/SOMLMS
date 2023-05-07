@@ -22,7 +22,8 @@ class AdminCategoryController extends Controller
      */
     public function create()
     {
-        return "Create Action";
+        return view("admin.categories.create");
+
     }
 
     /**
@@ -30,7 +31,7 @@ class AdminCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**
