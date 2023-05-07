@@ -6,6 +6,7 @@
             <a href="{{ route('admin.categories.create') }}" class="text-md text-blue-900 hover:underline">Add new</a>
         </div>
         <div class="overflow-x-auto rounded-lg border">
+            <x-success />
             <table class="w-full">
                 <thead>
                     <tr class="bg-slate-600 text-left text-xs font-semibold uppercase tracking-widest text-white">

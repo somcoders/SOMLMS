@@ -42,7 +42,7 @@ class AdminCategoryController extends Controller
             'slug' => Str::slug($request->name),
         ]);
 
-        return redirect()->back();
+        return redirect()->route("admin.categories.index")->withSuccess("Category saved successfully");
     }
 
     /**
