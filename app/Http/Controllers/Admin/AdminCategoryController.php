@@ -32,10 +32,10 @@ class AdminCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        // $category = new Category();
-        // $category->name =  $request->name;
-        // $category->slug =  Str::slug($request->name);
-        // $category->save();
+
+        $request->validate([
+             'name' => 'required|min:3|unique:categories',
+         ]);
 
         Category::create([
             'name' => $request->name,
