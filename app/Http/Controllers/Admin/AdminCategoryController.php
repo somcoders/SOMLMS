@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -31,7 +32,17 @@ class AdminCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        // $category = new Category();
+        // $category->name =  $request->name;
+        // $category->slug =  Str::slug($request->name);
+        // $category->save();
+
+        Category::create([
+            'name' => $request->name,
+            'slug' => Str::slug($request->name),
+        ]);
+
+        return redirect()->back();
     }
 
     /**
