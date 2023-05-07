@@ -30,10 +30,19 @@
               <li class="relative">
                   <button
                       class="focus:bg-slate-600 hover:bg-slate-600 flex w-full space-x-2 rounded-md px-10 py-4 text-gray-300 focus:outline-none">
-                      <span class="fa fa-list w-6 h-6"></span>
+                      <span class="fa fa-book w-6 h-6"></span>
                       <a href="{{ route('dashboard') }}"> Courses</a>
                   </button>
               </li>
+
+              <li class="relative">
+                  <button
+                      class="focus:bg-slate-600 hover:bg-slate-600 flex w-full space-x-2 rounded-md px-10 py-4 text-gray-300 focus:outline-none">
+                      <span class="fa fa-list w-6 h-6"></span>
+                      <a href="{{ route('admin.categories.index') }}"> Categories</a>
+                  </button>
+              </li>
+
               <li class="relative">
                   <button
                       class="focus:bg-slate-600 hover:bg-slate-600 flex w-full space-x-2 rounded-md px-10 py-4 text-gray-300 focus:outline-none">
