@@ -62,9 +62,9 @@ class AdminCategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Category $category)
     {
-        //
+        return view("admin.categories.edit", compact("category"));
     }
 
     /**
@@ -72,7 +72,19 @@ class AdminCategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+
+        $request->validate([
+                   'name' => 'required|min:3|unique:categories',
+        ]);
+
+        $category = Category::find($id);
+        $category->name = $request->name;
+        $category->slug =  Str::slug($request->name);
+        $category->update();
+
+        return redirect()->back()->withSuccess("Category saved successfully");
+
+
     }
 
     /**
