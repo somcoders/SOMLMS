@@ -24,7 +24,9 @@
                             <x-td><a href="{{ route('admin.categories.edit', $category->id) }}"
                                     class="text-blue-800">Edit</a></x-td>
                             <x-td>
-                                <form action="{{ route('admin.categories.destroy', $category->id) }}">
+                                <form method="POST" action="{{ route('admin.categories.destroy', $category->id) }}">
+                                    @csrf
+                                    @method('DELETE')
                                     <x-danger-button>Delete</x-danger-button>
                                 </form>
                             </x-td>

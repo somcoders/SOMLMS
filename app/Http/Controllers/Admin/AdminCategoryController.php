@@ -92,6 +92,12 @@ class AdminCategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $category = Category::find($id);
+        if($category->courses()->exists()) {
+            return redirect()->route("admin.categories.index")->withSuccess("Cannot delete Category with has courses");
+        }
+
+        $category->delete();
+        return redirect()->route("admin.categories.index")->withSuccess("Category Deleted successfully");
     }
 }
