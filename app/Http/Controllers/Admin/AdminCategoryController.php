@@ -12,6 +12,12 @@ class AdminCategoryController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+    public function __construct()
+    {
+        return $this->middleware("IsAdmin")->except("index");
+    }
+
     public function index()
     {
         $categories = Category::all();

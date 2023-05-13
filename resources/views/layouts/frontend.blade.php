@@ -42,11 +42,11 @@
                 <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
                     <li class="flex items-center">
                         <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                            href="#pablo">Login</a>
+                            href="{{ route('login') }}">Login</a>
                     </li>
                     <li class="flex items-center">
                         <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                            href="#pablo">Join</a>
+                            href="{{ route('register') }}">Join</a>
                     </li>
 
                     <li class="flex items-center">

@@ -26,7 +26,7 @@ Route::get('/', HomeController::class)->name("home");
 
 Route::get('/student/profile', function () {
     return view('profile');
-})->name("profile");
+})->name("profile")->middleware("auth");
 
 
 Route::get("/courses", [CourseController::class,"index"])->name("courses.index");
@@ -34,7 +34,7 @@ Route::get("/course/{slug}/{lesson?}", [CourseController::class,"show"])->name("
 
 Route::resource("/categories", CategoryController::class)->only(["index","show"]);
 
-Route::get('/dashboard', DashboardController::class)->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', DashboardController::class)->middleware(['auth','verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
