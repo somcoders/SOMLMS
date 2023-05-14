@@ -19,13 +19,16 @@ module.exports = {
     plugins: [require("@tailwindcss/forms")],
     safelist: [
         {
-            pattern: /from-(purple|fuchsia|blue)-(400|500)/,
+            pattern:
+                /from-(purple|indigo|fuchsia|cyan|green|blue|pink|red|blue|orange|yellow)-(400|500)/,
         },
         {
-            pattern: /via-(blue|cyan|indigo|pink)-(400|500)/,
+            pattern:
+                /via-(purple|indigo|fuchsia|cyan|green|blue|pink|red|blue|orange|yellow)-(400|500)/,
         },
         {
-            pattern: /to-(blue|cyan|indigo|pink)-(400|500)/,
+            pattern:
+                /to-(purple|indigo|fuchsia|cyan|green|blue|pink|red|blue|orange|yellow)-(400|500)/,
         },
     ],
 };

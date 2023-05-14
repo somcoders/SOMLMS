@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Course;
 use App\Models\Lesson;
+use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class AdminCourseController extends Controller
 {
@@ -24,7 +26,9 @@ class AdminCourseController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view("admin.courses.create", compact("categories"));
+
     }
 
     /**
@@ -32,7 +36,28 @@ class AdminCourseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'          => 'required|min:3|unique:courses',
+            'category_id'   => 'required',
+            'price'         => 'required',
+            'level_name'    => 'required',
+            'gradient'      => 'required',
+            'duration'      => 'required',
+        ]);
+
+        $course = new Course();
+        $course->name = $request->name;
+        $course->slug = Str::slug($request->name);
+        $course->category_id = $request->category_id;
+        $course->level = $request->level_name;
+        $course->price = $request->price;
+        $course->gradient = $request->gradient;
+        $course->description = $request->description;
+        $course->is_visible = $request->is_visible;
+        $course->duration = $request->duration;
+        $course->instructor_id = Auth::id();
+        $course->save();
+        return redirect()->back()->with("success", "Course Added Successfully");
     }
 
     /**
@@ -48,7 +73,9 @@ class AdminCourseController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $course = Course::findOrFail($id);
+        $categories = Category::all();
+        return view("admin.courses.edit", compact("categories", "course"));
     }
 
     /**
@@ -56,7 +83,31 @@ class AdminCourseController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // dd($request->all());
+
+        $request->validate([
+            'name'          => 'required|min:3|unique:courses,name,'.$id,
+            'category_id'   => 'required',
+            'price'         => 'required',
+            'level_name'    => 'required',
+            'gradient'      => 'required',
+            'duration'      => 'required'
+        ]);
+
+        $course = Course::findOrFail($id);
+        $course->name = $request->name;
+        $course->slug = Str::slug($request->name);
+        $course->category_id = $request->category_id;
+        $course->level = $request->level_name;
+        $course->price = $request->price;
+        $course->gradient = $request->gradient;
+        $course->description = $request->description;
+        $course->is_visible = $request->is_visible;
+        $course->duration = $request->duration;
+        $course->instructor_id = Auth::id();
+        $course->save();
+        return redirect()->back()->with("success", "Course Updated Successfully");
+
     }
 
     /**
@@ -64,7 +115,15 @@ class AdminCourseController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+
+        $course = Course::findOrFail($id);
+        if($course->chapters()->exists()) {
+            return redirect()->route("admin.courses.index")->withSuccess("Cannot delete course with has lessons");
+        }
+
+        $course->delete();
+        return redirect()->route("admin.courses.index")->withSuccess("course Deleted successfully");
+
     }
 
     public function addchapter($id)

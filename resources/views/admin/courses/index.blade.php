@@ -3,7 +3,7 @@
     <div class="overflow-y-hidden rounded-lg border mt-10">
         <div class="flex justify-between p-2">
             <h4 class="text-md text-slate-700">Courses ({{ count($courses) }})</h4>
-            <a href="{{ route('admin.categories.create') }}" class="text-md text-blue-900 hover:underline">Add new</a>
+            <a href="{{ route('admin.courses.create') }}" class="text-md text-blue-900 hover:underline">Add new</a>
         </div>
         <div class="overflow-x-auto rounded-lg border">
             <x-success />
