@@ -41,6 +41,9 @@
 
                 </tbody>
             </table>
+            <div class="p-4">
+                {{ $courses->links() }}
+            </div>
         </div>
     </div>
 </x-app-layout>

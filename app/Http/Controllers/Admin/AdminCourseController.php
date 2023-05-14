@@ -13,7 +13,7 @@ class AdminCourseController extends Controller
      */
     public function index()
     {
-        $courses = Course::all();
+        $courses = Course::paginate(20);
         return view("admin.courses.index", compact("courses"));
     }
 
