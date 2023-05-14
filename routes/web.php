@@ -45,6 +45,7 @@ Route::middleware('auth')->group(function () {
     Route::prefix("admin")->name("admin.")->group(function () {
         Route::resource("categories", AdminCategoryController::class);
         Route::resource("courses", AdminCourseController::class);
+        Route::get("courses/{id}/addchapter", [AdminCourseController::class,'addchapter'])->name("courses.addchapter");
     });
 });
 

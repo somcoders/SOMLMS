@@ -64,4 +64,10 @@ class AdminCourseController extends Controller
     {
         //
     }
+
+    public function addchapter(Request $request, $id)
+    {
+        $course = Course::with("chapters.lessons")->find($id);
+        return view("admin.courses.addcontent", compact("course"));
+    }
 }
