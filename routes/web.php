@@ -6,6 +6,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\AdminCourseController;
 use App\Http\Controllers\Admin\AdminCategoryController;
 
 /*
@@ -43,6 +44,7 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix("admin")->name("admin.")->group(function () {
         Route::resource("categories", AdminCategoryController::class);
+        Route::resource("courses", AdminCourseController::class);
     });
 });
 
