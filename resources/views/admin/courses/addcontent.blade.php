@@ -35,7 +35,7 @@
                     <x-success />
                 </header>
 
-                <form method="post" action="{{ route('admin.courses.addchapter', $course->id) }}"
+                <form method="post" action="{{ route('admin.courses.storechapter', $course->id) }}"
                     class="mt-6 space-y-6">
                     @csrf
                     @method('POST')
@@ -63,7 +63,7 @@
                     <x-success />
                 </header>
 
-                <form method="post" action="{{ route('admin.courses.addchapter', $course->id) }}"
+                <form method="post" action="{{ route('admin.courses.storelesson', $course->id) }}"
                     class="mt-6 space-y-6">
                     @csrf
                     @method('POST')
@@ -88,6 +88,11 @@
                             <x-radio value="1" name="is_visible" label="Yes" />
                             <x-radio value="0" name="is_visible" label="No" />
                         </div>
+
+                        <x-input-label for="position" :value="__('Position')" class="mt-2" />
+                        <x-text-input id="position" name="position" type="number" placeholder="position"
+                            class="mt-1 block w-full" required autofocus autocomplete="position"
+                            value="{{ old('position') }}" />
 
                         <x-primary-button class="mt-2">Save</x-primary-button>
                     </div>

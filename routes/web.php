@@ -46,6 +46,8 @@ Route::middleware('auth')->group(function () {
         Route::resource("categories", AdminCategoryController::class);
         Route::resource("courses", AdminCourseController::class);
         Route::get("courses/{id}/addchapter", [AdminCourseController::class,'addchapter'])->name("courses.addchapter");
+        Route::post("courses/{id}/storechapter", [AdminCourseController::class,'storechapter'])->name("courses.storechapter");
+        Route::post("courses/{id}/storelesson", [AdminCourseController::class,'storelesson'])->name("courses.storelesson");
     });
 });
 
