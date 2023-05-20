@@ -48,6 +48,18 @@
                         <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
                             href="{{ route('register') }}">Join</a>
                     </li>
+                    <li class="flex items-center">
+                        <!-- Authentication -->
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+
+                            <x-dropdown-link :href="route('logout')" class="text-white font-bold"
+                                onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                {{ __('Log Out') }}
+                            </x-dropdown-link>
+                        </form>
+                    </li>
 
                     <li class="flex items-center">
                         <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"

@@ -15,7 +15,8 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(auth()->user()->email != "faahid44@gmail.com") {
+        if(!in_array(auth()->user()->role, ["admin","instructor"])) {
+            // return redirect()->route("home");
             abort(401);
         }
 
