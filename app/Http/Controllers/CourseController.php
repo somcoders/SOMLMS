@@ -6,6 +6,7 @@ use DB;
 use App\Models\Course;
 use App\Models\Lesson;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CourseController extends Controller
 {
@@ -22,17 +23,16 @@ class CourseController extends Controller
         $course    = Course::with("chapters.lessons")
                 ->where('slug', $slug)
                     ->Visible()
-                    ->first();
+                    ->firstOrFail();
 
         $video = Lesson::lesson()
             ->whereSlug($lessonSlug)
             ->whereCourseId($course->id)
             ->first();
 
-        if (!$course) {
-            abort(404);
+        if($lessonSlug) {
+            $course->students()->syncWithOutDetaching(Auth::id());
         }
-
 
         return view("courses.show", compact("course", "video"));
     }
