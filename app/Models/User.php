@@ -50,4 +50,17 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Course::class, 'enrollments');
     }
+
+    public function scopeStudent($query)
+    {
+        return $query->where('role', "student");
+    }
+    public function scopeInstructor($query)
+    {
+        return $query->where('role', "instructor");
+    }
+    public function scopeAdmin($query)
+    {
+        return $query->where('role', "admin");
+    }
 }

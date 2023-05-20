@@ -17,7 +17,7 @@ class DashboardController extends Controller
     {
         $courses    = Course::count();
         $categories = Category::count();
-        $students   = User::count();
+        $students   = User::student()->count();
         return view('dashboard', compact("courses", "categories", "students"));
     }
 }
