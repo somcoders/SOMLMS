@@ -32,7 +32,9 @@
                             <x-td>{{ $user->firstname }}</x-td>
                             <x-td>{{ $user->email }}</x-td>
                             <x-td>{{ $user->role }}</x-td>
-                            <x-td>Update Role</x-td>
+                            <x-td><a href="{{ route('admin.users.edit', $user->id) }}" class="text-blue-800">Change
+                                    Role</a>
+                            </x-td>
                         </tr>
                     @endforeach
 

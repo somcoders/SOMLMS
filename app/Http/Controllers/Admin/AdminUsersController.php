@@ -50,7 +50,10 @@ class AdminUsersController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $roles = ["admin","instructor","student"];
+
+        $user = User::findOrFail($id);
+        return view("admin.users.change_role", compact("user", "roles"));
     }
 
     /**
@@ -58,7 +61,16 @@ class AdminUsersController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            "role" => "required|in:admin,instructor,student"
+        ]);
+
+        $user = User::findOrFail($id);
+        $user->role = $request->role;
+        $user->update();
+
+        return redirect()->back()->with("success", "User Role Updaated Successfully");
+
     }
 
     /**
