@@ -40,31 +40,44 @@
                     </li>
                 </ul>
                 <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
-                    <li class="flex items-center">
-                        <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                            href="{{ route('login') }}">Login</a>
-                    </li>
-                    <li class="flex items-center">
-                        <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                            href="{{ route('register') }}">Join</a>
-                    </li>
-                    <li class="flex items-center">
-                        <!-- Authentication -->
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
+                    @guest
+                        <li class="flex items-center">
+                            <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                                href="{{ route('login') }}">Login</a>
+                        </li>
 
-                            <x-dropdown-link :href="route('logout')" class="text-white font-bold"
-                                onclick="event.preventDefault();
+                        <li class="flex items-center">
+                            <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                                href="{{ route('register') }}">Join</a>
+                        </li>
+                    @endauth
+                    @auth
+                        <li class="flex items-center">
+                            <!-- Authentication -->
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+
+                                <x-dropdown-link :href="route('logout')" class="text-white font-bold"
+                                    onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Log Out') }}
-                            </x-dropdown-link>
-                        </form>
-                    </li>
+                                    {{ __('Log Out') }}
+                                </x-dropdown-link>
+                            </form>
+                        </li>
 
-                    <li class="flex items-center">
-                        <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                            href="{{ route('profile') }}">Profile</a>
-                    </li>
+                        <li class="flex items-center">
+                            <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                                href="{{ route('profile') }}">Profile</a>
+                        </li>
+
+                        <li class="flex items-center">
+                            <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                                href="{{ route('dashboard') }}">Dashboard</a>
+                        </li>
+                    @endauth
+
+
+
 
                 </ul>
             </div>
