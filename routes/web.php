@@ -26,7 +26,8 @@ Route::get('/', HomeController::class)->name("home");
 
 
 Route::get('/student/profile', function () {
-    return view('profile');
+    $courses = auth()->user()->courses;
+    return view('profile', compact("courses"));
 })->name("profile")->middleware("auth");
 
 

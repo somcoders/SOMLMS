@@ -17,7 +17,7 @@ class AdminCourseController extends Controller
      */
     public function index()
     {
-        $courses = Course::paginate(20);
+        $courses = Course::withCount("students")->paginate(20);
         return view("admin.courses.index", compact("courses"));
     }
 

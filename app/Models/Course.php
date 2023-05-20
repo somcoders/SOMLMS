@@ -27,6 +27,11 @@ class Course extends Model
          return $this->belongsTo(User::class, 'instructor_id');
      }
 
+      public function students()
+      {
+          return $this->belongsToMany(User::class, 'enrollments');
+      }
+
     public function scopeVisible($query)
     {
         return $query->where('is_visible', true);

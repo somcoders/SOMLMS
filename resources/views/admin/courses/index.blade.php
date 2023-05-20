@@ -15,6 +15,7 @@
                         <x-th>Category</x-th>
                         <x-th>instructor</x-th>
                         <x-th>Level</x-th>
+                        <x-th>Students</x-th>
                         <x-th>Manhaj</x-th>
                         <x-th>Edit</x-th>
                         <x-th>Delete</x-th>
@@ -28,6 +29,7 @@
                             <x-td>{{ $course->category->name }}</x-td>
                             <x-td>{{ $course->instructor->firstname }}</x-td>
                             <x-td>{{ $course->level }}</x-td>
+                            <x-td>{{ $course->students_count }}</x-td>
                             <x-td>
                                 <a href="{{ route('admin.courses.addchapter', $course->id) }}" class="text-blue-800">Add
                                     Content</a>
