@@ -8,28 +8,4 @@
             icon="fa fa-list" />
     </div>
     <!-- Component End  -->
-    <div class="overflow-y-hidden rounded-lg border mt-10">
-        <div class="flex justify-between p-2">
-            <h4 class="text-md text-slate-700">Categories</h4>
-            <a href="#" class="text-md text-blue-900 hover:underline">Add new</a>
-        </div>
-        <div class="overflow-x-auto rounded-lg border">
-            <table class="w-full">
-                <thead>
-                    <tr class="bg-slate-600 text-left text-xs font-semibold uppercase tracking-widest text-white">
-                        <x-th>Qoraal </x-th>
-                        <x-th>Qoraal2 </x-th>
-                        <x-th>Qoraal4 </x-th>
-                    </tr>
-                </thead>
-                <tbody class="text-gray-500">
-                    <tr>
-                        <x-td>99</x-td>
-                        <x-td>Qoraal</x-td>
-                        <x-td>Qoraal kale</x-td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
 </x-app-layout>

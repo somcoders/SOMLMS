@@ -6,6 +6,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\AdminUsersController;
 use App\Http\Controllers\Admin\AdminCourseController;
 use App\Http\Controllers\Admin\AdminCategoryController;
 
@@ -49,6 +50,9 @@ Route::middleware('auth')->group(function () {
         Route::get("courses/{id}/addchapter", [AdminCourseController::class,'addchapter'])->name("courses.addchapter");
         Route::post("courses/{id}/storechapter", [AdminCourseController::class,'storechapter'])->name("courses.storechapter");
         Route::post("courses/{id}/storelesson", [AdminCourseController::class,'storelesson'])->name("courses.storelesson");
+
+        Route::resource("users", AdminUsersController::class);
+
     });
 });
 

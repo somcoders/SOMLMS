@@ -46,28 +46,8 @@
               <li class="relative">
                   <button
                       class="focus:bg-slate-600 hover:bg-slate-600 flex w-full space-x-2 rounded-md px-10 py-4 text-gray-300 focus:outline-none">
-                      <span class="fa fa-video w-6 h-6"></span>
-                      <a href="{{ route('dashboard') }}"> Students</a>
-                  </button>
-              </li>
-              <li class="relative">
-                  <button
-                      class="focus:bg-slate-600 hover:bg-slate-600 flex w-full space-x-2 rounded-md px-10 py-4 font-semibold focus:outline-none">
-                      <span class="fa fa-user w-6 h-6"></span>
-                      <span class="">Students</span>
-                  </button>
-                  <svg class="text-slate-200 absolute -right-1 -top-1/2 z-10 hidden h-32 w-8 md:block"
-                      xmlns="http://www.w3.org/2000/svg" viewBox="399.349 57.696 100.163 402.081" width="1em"
-                      height="4em">
-                      <path fill="currentColor"
-                          d="M 499.289 57.696 C 499.289 171.989 399.349 196.304 399.349 257.333 C 399.349 322.485 499.512 354.485 499.512 458.767 C 499.512 483.155 499.289 57.696 499.289 57.696 Z" />
-                  </svg>
-              </li>
-              <li class="relative">
-                  <button
-                      class="focus:bg-slate-600 hover:bg-slate-600 flex w-full space-x-2 rounded-md px-10 py-4 text-gray-300 focus:outline-none">
-                      <span class="fa fa-pen w-6 h-6"></span>
-                      <a href="{{ route('dashboard') }}"> Instructors</a>
+                      <span class="fa fa-users w-6 h-6"></span>
+                      <a href="{{ route('admin.users.index') }}"> Users</a>
                   </button>
               </li>
           </ul>
