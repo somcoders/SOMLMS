@@ -29,7 +29,7 @@ class CoursePolicy
      */
     public function create(User $user): bool
     {
-        //
+        return $user->role === "instructor" || $user->role === "admin";
     }
 
     /**
