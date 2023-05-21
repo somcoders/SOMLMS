@@ -52,7 +52,7 @@ Route::middleware(['auth','IsAdmin'])->group(function () {
         Route::post("courses/{id}/storechapter", [AdminCourseController::class,'storechapter'])->name("courses.storechapter");
         Route::post("courses/{id}/storelesson", [AdminCourseController::class,'storelesson'])->name("courses.storelesson");
 
-        Route::resource("users", AdminUsersController::class);
+        Route::resource("users", AdminUsersController::class)->middleware("can:view_users");
 
     });
 });

@@ -12,8 +12,12 @@
                     <tr class="bg-slate-600 text-left text-xs font-semibold uppercase tracking-widest text-white">
                         <x-th>ID </x-th>
                         <x-th>Name</x-th>
-                        <x-th>Edit</x-th>
-                        <x-th>Delete</x-th>
+                        @can('edit_category')
+                            <x-th>Edit</x-th>
+                        @endcan
+                        @can('delete_category')
+                            <x-th>Delete</x-th>
+                        @endcan
                     </tr>
                 </thead>
                 <tbody class="text-gray-500">
@@ -21,14 +25,19 @@
                         <tr>
                             <x-td>{{ $category->id }}</x-td>
                             <x-td>{{ $category->name }}</x-td>
-                            <x-td><a href="{{ route('admin.categories.edit', $category->id) }}"
-                                    class="text-blue-800">Edit</a></x-td>
-                            <x-td>
-                                <form method="POST" action="{{ route('admin.categories.destroy', $category->id) }}">
-                                    @csrf
-                                    @method('DELETE')
-                                    <x-danger-button>Delete</x-danger-button>
-                                </form>
+                            @can('edit_category')
+                                <x-td><a href="{{ route('admin.categories.edit', $category->id) }}"
+                                        class="text-blue-800">Edit</a></x-td>
+                                <x-td>
+                                @endcan
+                                @can('delete_category')
+                                    <form method="POST" action="{{ route('admin.categories.destroy', $category->id) }}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <x-danger-button>Delete</x-danger-button>
+                                    </form>
+                                @endcan
+
                             </x-td>
                         </tr>
                     @endforeach

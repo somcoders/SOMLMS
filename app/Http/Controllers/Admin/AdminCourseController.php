@@ -17,7 +17,17 @@ class AdminCourseController extends Controller
      */
     public function index()
     {
-        $courses = Course::withCount("students")->paginate(20);
+        $user = auth()->user();
+
+        $courses = Course::query();
+
+        if($user->role !== "admin") {
+            $courses =  $courses->whereBelongsTo($user, 'instructor')->withCount("students")->paginate(20);
+        } else {
+            $courses = $courses->withCount("students")->paginate(20);
+        }
+
+
         return view("admin.courses.index", compact("courses"));
     }
 

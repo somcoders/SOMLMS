@@ -19,14 +19,16 @@
               </span>
           </div>
           <ul class="mt-2 space-y-3">
+              @can('view_dashboard')
+                  <li class="relative">
+                      <button
+                          class="focus:bg-slate-600 hover:bg-slate-600 flex w-full space-x-2 rounded-md px-10 py-4 text-gray-300 focus:outline-none">
+                          <span class="fa fa-signal w-6 h-6"></span>
+                          <a href="{{ route('dashboard') }}"> Dashboard</a>
+                      </button>
+                  </li>
+              @endcan
 
-              <li class="relative">
-                  <button
-                      class="focus:bg-slate-600 hover:bg-slate-600 flex w-full space-x-2 rounded-md px-10 py-4 text-gray-300 focus:outline-none">
-                      <span class="fa fa-signal w-6 h-6"></span>
-                      <a href="{{ route('dashboard') }}"> Dashboard</a>
-                  </button>
-              </li>
               <li class="relative">
                   <button
                       class="focus:bg-slate-600 hover:bg-slate-600 flex w-full space-x-2 rounded-md px-10 py-4 text-gray-300 focus:outline-none">
@@ -34,7 +36,6 @@
                       <a href="{{ route('admin.courses.index') }}"> Courses</a>
                   </button>
               </li>
-
               <li class="relative">
                   <button
                       class="focus:bg-slate-600 hover:bg-slate-600 flex w-full space-x-2 rounded-md px-10 py-4 text-gray-300 focus:outline-none">
@@ -43,13 +44,15 @@
                   </button>
               </li>
 
-              <li class="relative">
-                  <button
-                      class="focus:bg-slate-600 hover:bg-slate-600 flex w-full space-x-2 rounded-md px-10 py-4 text-gray-300 focus:outline-none">
-                      <span class="fa fa-users w-6 h-6"></span>
-                      <a href="{{ route('admin.users.index') }}"> Users</a>
-                  </button>
-              </li>
+              @can('view_users')
+                  <li class="relative">
+                      <button
+                          class="focus:bg-slate-600 hover:bg-slate-600 flex w-full space-x-2 rounded-md px-10 py-4 text-gray-300 focus:outline-none">
+                          <span class="fa fa-users w-6 h-6"></span>
+                          <a href="{{ route('admin.users.index') }}"> Users</a>
+                      </button>
+                  </li>
+              @endcan
           </ul>
 
           <div class="my-6 mt-auto ml-10 flex cursor-pointer">
