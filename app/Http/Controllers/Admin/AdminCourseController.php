@@ -59,6 +59,7 @@ class AdminCourseController extends Controller
             'level_name'    => 'required',
             'gradient'      => 'required',
             'duration'      => 'required',
+            'embed'      => 'required',
         ]);
 
         $course = new Course();
@@ -71,6 +72,7 @@ class AdminCourseController extends Controller
         $course->description = $request->description;
         $course->is_visible = $request->is_visible;
         $course->duration = $request->duration;
+        $course->embed = $request->embed;
         $course->instructor_id = Auth::id();
         $course->save();
         return redirect()->back()->with("success", "Course Added Successfully");
@@ -106,7 +108,8 @@ class AdminCourseController extends Controller
             'price'         => 'required',
             'level_name'    => 'required',
             'gradient'      => 'required',
-            'duration'      => 'required'
+            'duration'      => 'required',
+            'embed'      => 'required'
         ]);
 
 
@@ -119,6 +122,7 @@ class AdminCourseController extends Controller
         $course->description = $request->description;
         $course->is_visible = $request->is_visible;
         $course->duration = $request->duration;
+        $course->embed = $request->embed;
         $course->save();
         return redirect()->back()->with("success", "Course Updated Successfully");
 

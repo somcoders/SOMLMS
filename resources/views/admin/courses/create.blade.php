@@ -27,7 +27,7 @@
                         @endforeach
                     </select>
 
-                    <x-input-label for="gradient" :value="__('gradient')" class="mt-2" />
+                    <x-input-label for="gradient" :value="__('Gradient')" class="mt-2" />
                     <x-text-input id="gradient" name="gradient" type="text" class="mt-1 block w-full" required
                         autofocus autocomplete="gradient" placeholder="Example red,yellow,pink"
                         value="{{ old('gradient') }}" />
@@ -38,13 +38,18 @@
 
 
                 <div class="w-1/2">
-                    <x-input-label for="price" :value="__('price')" />
+                    <x-input-label for="price" :value="__('Price')" />
                     <x-text-input id="price" name="price" type="number" class="mt-1 block w-full" required
                         autofocus autocomplete="price" value="{{ old('price') }}" />
 
-                    <x-input-label for="duration" :value="__('duration')" class="mt-2" />
+                    <x-input-label for="duration" :value="__('Duration')" class="mt-2" />
                     <x-text-input id="duration" name="duration" type="number" class="mt-1 block w-full" required
                         autofocus autocomplete="duration" value="{{ old('duration') }}" />
+
+
+                    <x-input-label for="name" :value="__('Embed')" />
+                    <x-text-input id="embed" name="embed" type="text" class="mt-1 block w-full" required
+                        autofocus autocomplete="embed" placeholder="Embed" value="{{ old('embed') }}" />
 
                     <select name="level_name" class="p-2 block rounded mt-2 w-full text-slate-500">
                         <option value="">Choose Level</option>

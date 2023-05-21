@@ -49,7 +49,8 @@
         <section class="text-gray-400 bg-gray-900 body-font">
             <div class="container px-5 pb-10 mx-auto flex flex-wrap">
                 <div class="lg:w-1/2 w-full mt-10 lg:mb-0 rounded-lg overflow-hidden">
-                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/{{ $video->embed ?? '' }}"
+                    <iframe width="100%" height="480"
+                        src="https://www.youtube.com/embed/{{ $video->embed ?? $course->embed }}"
                         title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen></iframe>

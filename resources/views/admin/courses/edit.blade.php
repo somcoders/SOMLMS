@@ -46,6 +46,10 @@
                     <x-text-input id="duration" name="duration" type="number" class="mt-1 block w-full" required
                         autofocus autocomplete="duration" value="{{ $course->duration }}" />
 
+                    <x-input-label for="name" :value="__('embed')" />
+                    <x-text-input id="embed" name="embed" type="text" class="mt-1 block w-full" required
+                        autofocus autocomplete="embed" placeholder="Embed" value="{{ $course->embed }}" />
+
                     <select name="level_name" class="p-2 block rounded mt-2 w-full text-slate-500">
                         <option value="">Choose Level</option>
                         <option value="beginer" {{ $course->level === 'beginer' ? 'selected' : '' }}>
