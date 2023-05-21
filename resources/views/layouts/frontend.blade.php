@@ -69,11 +69,13 @@
                             <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
                                 href="{{ route('profile') }}">Profile</a>
                         </li>
+                        @if (in_array(auth()->user()->role, ['admin', 'instructor']))
+                            <li class="flex items-center">
+                                <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                                    href="{{ route('dashboard') }}">Dashboard</a>
+                            </li>
+                        @endif
 
-                        <li class="flex items-center">
-                            <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                                href="{{ route('dashboard') }}">Dashboard</a>
-                        </li>
                     @endauth
 
 
