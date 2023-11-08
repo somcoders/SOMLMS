@@ -1,11 +1,13 @@
 <x-app-layout>
     <!-- Component Start -->
-    <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-6 w-full max-w-6xl">
+    <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-6 w-full">
         <x-dashcard text="{{ $admins }}" desc="Admins" textColor="text-red-800" bg="bg-red-200" icon="fa fa-book" />
         <x-dashcard text="{{ $instructors }}" desc="Instructors" textColor="text-green-800" bg="bg-green-200"
             icon="fa fa-user" />
         <x-dashcard text="{{ $students }}" desc="Students" textColor="text-pink-800" bg="bg-pink-200"
             icon="fa fa-list" />
+
+        <x-dashcard text="2" desc="Inactive" textColor="text-purple-800" bg="bg-purple-200" icon="fa fa-users" />
     </div>
     <!-- Component End  -->
 
@@ -31,7 +33,21 @@
                             <x-td>{{ $user->id }}</x-td>
                             <x-td>{{ $user->firstname }}</x-td>
                             <x-td>{{ $user->email }}</x-td>
-                            <x-td>{{ $user->role }}</x-td>
+                            <x-td>
+                                @php
+                                    $color = 'black';
+                                    if ($user->role == 'admin') {
+                                        $color = 'green';
+                                    } elseif ($user->role == 'instructor') {
+                                        $color = 'orange';
+                                    } else {
+                                        $color = 'yellow';
+                                    }
+                                @endphp
+                                <span
+                                    class="rounded-full bg-{{ $color }}-200 px-3 py-1 text-xs font-semibold text-{{ $color }}-900">
+                                    {{ $user->role }}</span>
+                            </x-td>
                             <x-td><a href="{{ route('admin.users.edit', $user->id) }}" class="text-blue-800">Change
                                     Role</a>
                             </x-td>

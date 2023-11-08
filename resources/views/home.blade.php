@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 
-@section('title', 'Homepage')
+@section('title', 'Home')
 
 
 @section('contents')
