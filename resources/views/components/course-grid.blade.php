@@ -1,6 +1,10 @@
  @forelse ($courses as $course)
      @php
-         $gradient = explode(',', $course->gradient);
+         if (strpos($course->gradient, ',') !== false) {
+             $gradient = explode(',', $course->gradient);
+         } else {
+             $gradient = explode(',', 'blue,indigo,blue');
+         }
      @endphp
      <article class="h-40">
          <a class="block h-full flex flex-col justify-around rounded-lg bg-gradient-to-r from-{{ $gradient[0] }}-500 via-{{ $gradient[1] }}-400 to-{{ $gradient[1] }}-400 p-2 transition hover:scale-105"
